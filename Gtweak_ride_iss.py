@@ -15,13 +15,16 @@ def main():
     # the problem here, is that it will read out as a string
     helmet = groundctrl.read()
 
+
     helmetson = json.loads(helmet.decode("utf-8"))
 
+    # append names into the list
+    newhelmet = helmetson.append({"name" : "Eddie Kopra"}, {"name" : "James Peake"}, {"name" : "Yurie Kopra"}, {"name" : "Buzz Aldrin"})
     # display people in space
     print("People in space: " + str(helmetson["number"]))
 
     # display every item in a list
-    for astro in helmetson["people"]:
+    for astro in newhelmet["people"]:
         # display ONLY the name value associated with astro
         print(astro["name"] + " on the " + astro["craft"])
 
